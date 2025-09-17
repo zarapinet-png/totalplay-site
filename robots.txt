@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# Cambia la URL del sitemap a tu usuario/repositorio de GitHub Pages
+Sitemap: https://tuusuario.github.io/totalplay-site/sitemap.xml
