@@ -72,7 +72,7 @@
         <h2 class="text-3xl font-extrabold mb-8 text-center">Planes sugeridos</h2>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div class="rounded-2xl border border-slate-200 bg-white shadow-lg p-6 flex flex-col items-center">
-            <img src="/assets/Plan-1.png" alt="Plan 1" class="w-full max-w-md h-auto rounded-xl shadow object-cover mb-4" />
+            <img src="/assets/Plan-1.png" alt="Plan 1" class="w-full max-w-md h-auto rounded-xl shadow object-cover mb-4 cursor-pointer" id="plan1Img" />
           </div>
           <!-- Puedes agregar más planes aquí en el mismo formato -->
         </div>
@@ -86,6 +86,12 @@
     </div>
   </footer>
 
+  <div id="plan1Modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+    <div class="relative w-full h-full flex items-center justify-center">
+      <img src="/assets/Plan-1.png" alt="Plan 1" class="max-w-full max-h-full object-contain" />
+      <button id="closePlan1" class="absolute top-6 right-6 px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold shadow hover:bg-slate-100 transition">Regresar al menú</button>
+    </div>
+  </div>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     // Menú desplegable
@@ -103,6 +109,27 @@
     menuDropdown.addEventListener('click', function(e) {
       e.stopPropagation();
     });
+
+    // Ampliar imagen Plan-1
+    const plan1Img = document.getElementById('plan1Img');
+    const plan1Modal = document.getElementById('plan1Modal');
+    const closePlan1 = document.getElementById('closePlan1');
+    if (plan1Img && plan1Modal && closePlan1) {
+      plan1Img.addEventListener('click', function() {
+        plan1Modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      });
+      closePlan1.addEventListener('click', function() {
+        plan1Modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      });
+      plan1Modal.addEventListener('click', function(e) {
+        if (e.target === plan1Modal) {
+          plan1Modal.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+    }
   </script>
 </body>
 </html>
