@@ -31,7 +31,7 @@
   <link rel="icon" href="/assets/favicon.png" type="image/png">
 </head>
 <body class="bg-white text-slate-800 antialiased">
-  <div id="musicControl" class="fixed top-6 right-6 z-50">
+  <div id="musicControl" class="fixed bottom-6 right-6 z-50">
     <button id="playMusicBtn" class="px-6 py-3 rounded-xl bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700 transition">Reproducir música</button>
   </div>
   <audio id="bgMusic" src="/assets/musica.mp3" loop hidden></audio>
@@ -171,14 +171,21 @@
     </div>
   </div>
   <script>
-    // Reproducir música al hacer clic en el botón
+    // Controlar música al hacer clic en el botón
     const playMusicBtn = document.getElementById('playMusicBtn');
     const bgMusic = document.getElementById('bgMusic');
+    let isPlaying = false;
     if (playMusicBtn && bgMusic) {
       playMusicBtn.addEventListener('click', function() {
-        bgMusic.play();
-        playMusicBtn.textContent = 'Música reproduciéndose';
-        playMusicBtn.disabled = true;
+        if (!isPlaying) {
+          bgMusic.play();
+          playMusicBtn.textContent = 'Detener música';
+          isPlaying = true;
+        } else {
+          bgMusic.pause();
+          playMusicBtn.textContent = 'Reproducir música';
+          isPlaying = false;
+        }
       });
     }
     document.getElementById('year').textContent = new Date().getFullYear();
