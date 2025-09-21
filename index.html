@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
+  <style>
+          @keyframes blink-slower {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+          }
+          .animate-blink-slower {
+            animation: blink-slower 6s infinite;
+          }
+          .inst-fullscreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 30;
+            pointer-events: none;
+          }
+  </style>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Asesoría Totalplay Morelia – Elizabeth García Rubio | Contratación de Internet</title>
@@ -42,6 +61,9 @@
               <span class="block text-[color:var(--brand)] text-4xl sm:text-5xl font-extrabold mt-2 mb-2 mx-auto" style="line-height:1;">TotalPlay</span>
               <span class="bg-clip-text text-transparent gradient-brand">asesoría independiente – autorizada</span>
             </h1>
+            <div class="w-full flex justify-center mb-4">
+              <img src="/assets/inst.jpg" alt="Instalación parpadeante" class="w-full max-w-lg h-auto rounded-2xl shadow-lg animate-blink-slower" />
+            </div>
             <div class="w-full max-w-md mx-auto mt-2 mb-2">
               <img src="/assets/asesora-totalplay.jpg" alt="Asesora Totalplay" class="w-full h-auto rounded-2xl shadow-lg object-cover" />
             </div>
