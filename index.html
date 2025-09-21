@@ -34,7 +34,7 @@
   <div id="musicControl" class="fixed bottom-6 right-6 z-50">
   <button id="playMusicBtn" class="px-2 py-1 text-sm rounded-lg bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700 transition">Reproducir música</button>
   </div>
-  <audio id="bgMusic" src="/assets/musica.mp3" loop hidden></audio>
+  <audio id="bgMusic" src="/assets/musica.mp3" loop hidden preload="none"></audio>
   <audio id="bgMusic" src="/assets/musica.mp3" autoplay loop hidden></audio>
 
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
@@ -50,7 +50,7 @@
           <a href="#cobertura" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Cobertura</a>
           <a href="#ventas" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Módulo de ventas</a>
           <a href="#faq" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">FAQs</a>
-          <a href="#legales" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Legales</a>
+          <a href="#politicas" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Legales</a>
         </div>
       </div>
     </div>
@@ -178,6 +178,9 @@
     if (playMusicBtn && bgMusic) {
       playMusicBtn.addEventListener('click', function() {
         if (!isPlaying) {
+          // Detener y reiniciar para evitar doble reproducción
+          bgMusic.pause();
+          bgMusic.currentTime = 0;
           bgMusic.play();
           playMusicBtn.textContent = 'Detener música';
           isPlaying = true;
@@ -319,4 +322,12 @@
     }
   </script>
 </body>
+  <footer class="w-full bg-slate-100 text-slate-700 text-xs py-6 mt-12 border-t border-slate-200">
+  <div id="politicas" class="max-w-2xl mx-auto px-4">
+      <h2 class="font-bold mb-2">Resumen de Políticas de Datos Personales</h2>
+      <p>
+        En Totalplay Morelia, la protección de tus datos personales es una prioridad. Recopilamos únicamente la información necesaria para brindarte nuestros servicios y mejorar tu experiencia. Tus datos no serán compartidos con terceros sin tu consentimiento, salvo obligación legal. Puedes solicitar la modificación o eliminación de tus datos en cualquier momento. Para más información, consulta nuestro aviso de privacidad completo o contáctanos directamente.
+      </p>
+    </div>
+  </footer>
 </html>
