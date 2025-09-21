@@ -188,6 +188,43 @@
         }
       });
     }
+
+    // Pausar música al reproducir video y reanudar al finalizar/interrumpir
+    function handleVideoMusic(video) {
+      if (!bgMusic) return;
+      video.addEventListener('play', function() {
+        if (!bgMusic.paused) {
+          bgMusic.pause();
+        }
+      });
+      video.addEventListener('pause', function() {
+        if (isPlaying && bgMusic.paused) {
+          bgMusic.play();
+        }
+      });
+      video.addEventListener('ended', function() {
+        if (isPlaying && bgMusic.paused) {
+          bgMusic.play();
+        }
+      });
+    }
+
+    // Buscar todos los videos y aplicar el handler
+    document.querySelectorAll('video').forEach(handleVideoMusic);
+
+    // Si hay videos en modales que se crean dinámicamente, observar el DOM
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.tagName === 'VIDEO') {
+            handleVideoMusic(node);
+          } else if (node.querySelectorAll) {
+            node.querySelectorAll('video').forEach(handleVideoMusic);
+          }
+        });
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
     document.getElementById('year').textContent = new Date().getFullYear();
     // Menú desplegable
     const menuBtn = document.getElementById('menuBtn');
