@@ -74,7 +74,25 @@
           <div class="rounded-2xl border border-slate-200 bg-white shadow-lg p-6 flex flex-col items-center">
             <img src="/assets/Plan-1.png" alt="Plan 1" class="w-full max-w-md h-auto rounded-xl shadow object-cover mb-4 cursor-pointer" id="plan1Img" />
           </div>
-          <!-- Puedes agregar más planes aquí en el mismo formato -->
+          <!-- Videos en la galería principal -->
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-lg p-6 flex flex-col items-center">
+            <video id="video1" class="w-full max-w-md h-auto rounded-xl shadow object-cover mb-4 cursor-pointer" poster="/assets/video/poster.jpg">
+              <source src="/assets/video/totalplay-demo-optimized.mp4" type="video/mp4">
+              Tu navegador no soporta el video HTML5.
+            </video>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-lg p-6 flex flex-col items-center">
+            <video id="video2" class="w-full max-w-md h-auto rounded-xl shadow object-cover mb-4 cursor-pointer">
+              <source src="/assets/video/Video de WhatsApp 2025-09-20 a las 05.30.34_b2b0ac18.mp4" type="video/mp4">
+              Tu navegador no soporta el video HTML5.
+            </video>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-lg p-6 flex flex-col items-center">
+            <video id="video3" class="w-full max-w-md h-auto rounded-xl shadow object-cover mb-4 cursor-pointer">
+              <source src="/assets/video/Video de WhatsApp 2025-09-20 a las 05.36.14_5f33da0d.mp4" type="video/mp4">
+              Tu navegador no soporta el video HTML5.
+            </video>
+          </div>
         </div>
       </div>
     </section>
@@ -102,6 +120,13 @@
     <div class="relative w-full h-full flex items-center justify-center">
       <img src="/assets/Plan-1.png" alt="Plan 1" class="max-w-full max-h-full object-contain" />
       <button id="closePlan1" class="absolute top-6 right-6 px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold shadow hover:bg-slate-100 transition">Regresar al menú</button>
+    </div>
+  </div>
+  <!-- Modales para videos -->
+  <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+    <div class="relative w-full h-full flex items-center justify-center">
+      <video id="modalVideo" class="max-w-full max-h-full object-contain" controls autoplay></video>
+      <button id="closeVideo" class="absolute top-6 right-6 px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold shadow hover:bg-slate-100 transition">Regresar al menú</button>
     </div>
   </div>
   <script>
@@ -139,6 +164,51 @@
         if (e.target === plan1Modal) {
           plan1Modal.classList.add('hidden');
           document.body.classList.remove('overflow-hidden');
+        }
+      });
+    }
+
+    // Videos en pantalla completa
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const closeVideo = document.getElementById('closeVideo');
+    const videoThumbs = [
+      document.getElementById('video1'),
+      document.getElementById('video2'),
+      document.getElementById('video3')
+    ];
+    let currentVideoSrc = '';
+    videoThumbs.forEach((thumb, idx) => {
+      if (thumb) {
+        thumb.addEventListener('click', function() {
+          currentVideoSrc = thumb.querySelector('source').src;
+          modalVideo.src = currentVideoSrc;
+          modalVideo.play();
+          videoModal.classList.remove('hidden');
+          document.body.classList.add('overflow-hidden');
+        });
+      }
+    });
+    if (closeVideo && videoModal && modalVideo) {
+      closeVideo.addEventListener('click', function() {
+        videoModal.classList.add('hidden');
+        modalVideo.pause();
+        modalVideo.src = '';
+        document.body.classList.remove('overflow-hidden');
+      });
+      videoModal.addEventListener('click', function(e) {
+        if (e.target === videoModal) {
+          videoModal.classList.add('hidden');
+          modalVideo.pause();
+          modalVideo.src = '';
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+      modalVideo.addEventListener('click', function() {
+        if (!modalVideo.paused) {
+          modalVideo.pause();
+        } else {
+          modalVideo.play();
         }
       });
     }
