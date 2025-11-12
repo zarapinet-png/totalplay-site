@@ -175,6 +175,13 @@
       <button id="closePlan1" class="absolute top-6 right-6 px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold shadow hover:bg-slate-100 transition">Regresar al menú</button>
     </div>
   </div>
+
+  <div id="plan2Modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+    <div class="relative w-full h-full flex items-center justify-center">
+      <img src="/assets/Imagen-promo-390.jpg" alt="Plan 2" class="max-w-full max-h-full object-contain" />
+      <button id="closePlan2" class="absolute top-6 right-6 px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold shadow hover:bg-slate-100 transition">Regresar al menú</button>
+    </div>
+  </div>
   <!-- Modales para videos -->
   <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
     <div class="relative w-full h-full flex items-center justify-center">
@@ -288,6 +295,27 @@
       });
     }
 
+    // Ampliar imagen Plan-2
+    const plan2Img = document.getElementById('plan2Img');
+    const plan2Modal = document.getElementById('plan2Modal');
+    const closePlan2 = document.getElementById('closePlan2');
+    if (plan2Img && plan2Modal && closePlan2) {
+      plan2Img.addEventListener('click', function() {
+        plan2Modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      });
+      closePlan2.addEventListener('click', function() {
+        plan2Modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      });
+      plan2Modal.addEventListener('click', function(e) {
+        if (e.target === plan2Modal) {
+          plan2Modal.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+    }
+
     // Videos en pantalla completa
     const videoModal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
@@ -295,7 +323,8 @@
     const videoThumbs = [
       document.getElementById('video1'),
       document.getElementById('video2'),
-      document.getElementById('video3')
+      document.getElementById('video3'),
+      document.getElementById('video4')
     ];
     let currentVideoSrc = '';
     videoThumbs.forEach((thumb, idx) => {
