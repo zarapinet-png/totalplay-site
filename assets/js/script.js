@@ -31,9 +31,9 @@ const MEDIA_CONFIG = {
       id: 'video4'
     },
     {
-      src: './assets/images/Plan-1.png',
-      alt: 'Plan 1',
-      id: 'plan1'
+      src: './assets/images/simetria1.png',
+      alt: 'simetria1',
+      id: 'simetria'
     },{
       src: './assets/images/netflix5.png',
       alt: 'netflix5',
