@@ -1,7 +1,7 @@
 // ===== CONFIGURACIÓN DE PROMOCIÓN DEL MOMENTO =====
 // Cambia esta imagen para actualizar la promoción destacada
 const PROMOCION_CONFIG = {
-  imagen: './assets/images/promocion_del_momento_1.jpeg',
+  imagen: './assets/images/internetcontvnavidad.jpg',
   alt: 'Promoción del momento - Instalación inmediata',
   titulo: '¡Instalación Inmediata!',
   descripcion: 'Contrata ahora y obtén instalación el mismo día. Sin esperas, sin complicaciones.',
