@@ -21,9 +21,9 @@ const MEDIA_CONFIG = {
       alt: 'autoinstalador',
       id: 'autoinstalador'
     },{
-      src: './assets/video/video_prom_buen_fin.mp4',
-      alt: 'video5',
-      id: 'video5'
+      src: './assets/video/monstruo_con_dron.mp4',
+      alt: 'dron',
+      id: 'dron'
     },
     {
       src: './assets/video/Video promocional ttt-ttp.mp4',
