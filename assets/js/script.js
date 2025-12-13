@@ -17,6 +17,10 @@ const MEDIA_CONFIG = {
   // Lista unificada de medios (imágenes y videos) - el orden determina cómo aparecen
   media: [
     {
+      src: './assets/images/auto.jpg',
+      alt: 'autoinstalador',
+      id: 'autoinstalador'
+    },{
       src: './assets/video/video_prom_buen_fin.mp4',
       alt: 'video5',
       id: 'video5'
