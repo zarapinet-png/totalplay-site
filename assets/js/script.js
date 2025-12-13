@@ -31,15 +31,6 @@ const MEDIA_CONFIG = {
       id: 'video4'
     },
     {
-      src: './assets/images/simetria1.png',
-      alt: 'simetria1',
-      id: 'simetria'
-    },{
-      src: './assets/images/netflix5.png',
-      alt: 'netflix5',
-      id: 'netflix5'
-    }
-    {
       src: './assets/video/totalplay-demo-optimized.mp4',
       alt: 'Demo Totalplay',
       id: 'video1'
