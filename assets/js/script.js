@@ -1,7 +1,7 @@
 // ===== CONFIGURACIÓN DE PROMOCIÓN DEL MOMENTO =====
 // Cambia esta imagen para actualizar la promoción destacada
 const PROMOCION_CONFIG = {
-  imagen: './assets/images/internetcontvnavidad.jpg',
+  imagen: './assets/images/inst.jpg',
   alt: 'Promocion del momento - Instalación inmediata',
   titulo: '¡Instalación Inmediata!',
   descripcion: 'Contrata ahora y obtén instalación el mismo día. Sin esperas, sin complicaciones.',
@@ -114,15 +114,18 @@ function updatePromocionSection() {
     return;
   }
 
-  // Actualizar la imagen de promoción
-  const imgElement = promocionImagen.querySelector('img');
-  if (imgElement) {
-    imgElement.src = PROMOCION_CONFIG.imagen;
-    imgElement.alt = PROMOCION_CONFIG.alt;
-    // Cambiar animación de parpadeo a escala
-    imgElement.classList.remove('animate-blink-slower');
-    imgElement.classList.add('animate-pulse-scale');
+  // Aquí se inserta o actualiza la imagen de la promoción (insertada dinámicamente)
+  let imgElement = promocionImagen.querySelector('img');
+  if (!imgElement) {
+    imgElement = document.createElement('img');
+    imgElement.className = 'w-full max-w-md mx-auto h-auto rounded-2xl shadow-lg animate-pulse-scale';
+    promocionImagen.appendChild(imgElement);
   }
+  imgElement.src = PROMOCION_CONFIG.imagen;
+  imgElement.alt = PROMOCION_CONFIG.alt;
+  // Asegurar la animación correcta
+  imgElement.classList.remove('animate-blink-slower');
+  imgElement.classList.add('animate-pulse-scale');
 
   // Actualizar otros elementos de la promoción si es necesario
   const titulo = document.querySelector('#promocion h3');
