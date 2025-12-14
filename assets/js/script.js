@@ -124,6 +124,13 @@ function updatePromocionSection() {
     imgElement.classList.add('animate-pulse-scale');
   }
 
+  // Actualizar la imagen pequeña que aparece debajo del título, si existe
+  const headerImg = document.getElementById('promocionHeaderImg');
+  if (headerImg) {
+    headerImg.src = PROMOCION_CONFIG.imagen;
+    headerImg.alt = PROMOCION_CONFIG.alt;
+  }
+
   // Actualizar otros elementos de la promoción si es necesario
   const titulo = document.querySelector('#promocion h3');
   if (titulo) titulo.textContent = PROMOCION_CONFIG.titulo;
