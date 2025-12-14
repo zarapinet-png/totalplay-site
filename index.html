@@ -64,16 +64,19 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8">
           <h2 class="text-3xl font-extrabold text-slate-900 mb-4">🔥 Promoción del Momento</h2>
-          <p class="text-lg text-slate-600">¡Aprovecha esta oferta especial limitada!</p>
-          <div class="mt-6">
-            <img src="./assets/images/inst.jpg" alt="Promoción del momento" class="w-full max-w-md mx-auto h-auto rounded-2xl shadow-lg animate-pulse-scale" />
+          <div id="promocionHeaderImage" class="mx-auto mb-4">
+            <img id="promocionHeaderImg" src="./assets/images/inst.jpg" alt="Promoción del momento" class="w-48 h-auto mx-auto rounded-lg shadow-sm" />
           </div>
+          <p class="text-lg text-slate-600">¡Aprovecha esta oferta especial limitada!</p>
         </div>
         
         <div class="bg-gradient-to-r from-emerald-50 to-green-50 rounded-3xl p-8 shadow-xl border border-emerald-100">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div class="order-2 lg:order-1">
-              <!-- Imagen movida arriba: se muestra ahora justo debajo del título -->
+              <!-- Imagen de la promoción del momento -->
+              <div id="promocionImagen" class="w-full">
+                <img src="./assets/images/inst.jpg" alt="Promoción del momento" class="w-full h-auto rounded-2xl shadow-lg animate-pulse-scale" />
+              </div>
             </div>
             
             <div class="order-1 lg:order-2 text-center lg:text-left">
