@@ -1,7 +1,7 @@
 // ===== CONFIGURACIÓN DE PROMOCIÓN DEL MOMENTO =====
 // Cambia esta imagen para actualizar la promoción destacada
 const PROMOCION_CONFIG = {
-  imagen: './assets/images/prom14.jpg',
+  imagen: './assets/images/prom14.jpg.png',
   alt: 'Promoción del momento - Instalación inmediata',
   titulo: '¡Instalación Inmediata!',
   descripcion: 'Contrata ahora y obtén instalación el mismo día. Sin esperas, sin complicaciones.',
