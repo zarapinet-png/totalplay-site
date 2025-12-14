@@ -2,8 +2,6 @@
 // Cambia esta imagen para actualizar la promoción destacada
 const PROMOCION_CONFIG = {
   imagen: './assets/images/internetcontvnavidad.jpg',
-  // Imagen pequeña que aparece justo debajo del título (puede ser diferente a la imagen principal)
-  headerImagen: './assets/images/inst.jpg',
   alt: 'Promocion del momento - Instalación inmediata',
   titulo: '¡Instalación Inmediata!',
   descripcion: 'Contrata ahora y obtén instalación el mismo día. Sin esperas, sin complicaciones.',
@@ -124,14 +122,6 @@ function updatePromocionSection() {
     // Cambiar animación de parpadeo a escala
     imgElement.classList.remove('animate-blink-slower');
     imgElement.classList.add('animate-pulse-scale');
-  }
-
-  // Actualizar la imagen pequeña que aparece debajo del título, si existe
-  const headerImg = document.getElementById('promocionHeaderImg');
-  if (headerImg) {
-    // Usar `headerImagen` si está definida, si no, usar la imagen principal
-    headerImg.src = PROMOCION_CONFIG.headerImagen || PROMOCION_CONFIG.imagen;
-    headerImg.alt = PROMOCION_CONFIG.alt;
   }
 
   // Actualizar otros elementos de la promoción si es necesario
@@ -455,12 +445,10 @@ function reorderMedia(fromIndex, toIndex) {
 }
 
 // Función para cambiar la promoción del momento
-function changePromocion(imagen, titulo = null, descripcion = null, headerImagen = null) {
+function changePromocion(imagen, titulo = null, descripcion = null) {
   PROMOCION_CONFIG.imagen = imagen;
   if (titulo) PROMOCION_CONFIG.titulo = titulo;
   if (descripcion) PROMOCION_CONFIG.descripcion = descripcion;
-  // Si se proporciona una imagen de encabezado, actualízala también
-  if (headerImagen) PROMOCION_CONFIG.headerImagen = headerImagen;
   updatePromocionSection();
 }
 
