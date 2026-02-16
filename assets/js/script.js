@@ -17,10 +17,6 @@ const MEDIA_CONFIG = {
   // Lista unificada de medios (imágenes y videos) - el orden determina cómo aparecen
   media: [
     {
-      src: './assets/images/auto.jpg',
-      alt: 'autoinstalador',
-      id: 'autoinstalador'
-    },{
       src: './assets/video/monstruo_con_dron.mp4',
       alt: 'dron',
       id: 'dron'
@@ -115,14 +111,14 @@ function updatePromocionSection() {
   }
 
   // Actualizar la imagen de promoción
-  const imgElement = promocionImagen.querySelector('img');
+  /*const imgElement = promocionImagen.querySelector('img');
   if (imgElement) {
     imgElement.src = PROMOCION_CONFIG.imagen;
     imgElement.alt = PROMOCION_CONFIG.alt;
     // Cambiar animación de parpadeo a escala
     imgElement.classList.remove('animate-blink-slower');
     imgElement.classList.add('animate-pulse-scale');
-  }
+  }*/
 
   // Actualizar otros elementos de la promoción si es necesario
   const titulo = document.querySelector('#promocion h3');
