@@ -17,14 +17,14 @@ const MEDIA_CONFIG = {
   // Lista unificada de medios (imágenes y videos) - el orden determina cómo aparecen
   media: [
     {
-      src: './assets/video/monstruo_con_dron.mp4',
-      alt: 'dron',
-      id: 'dron'
-    },
-    {
       src: './assets/video/Video promocional ttt-ttp.mp4',
       alt: 'Video Promocional',
       id: 'video4'
+    },
+    {
+      src: './assets/video/monstruo_con_dron.mp4',
+      alt: 'dron',
+      id: 'dron'
     },
     {
       src: './assets/video/totalplay-demo-optimized.mp4',
