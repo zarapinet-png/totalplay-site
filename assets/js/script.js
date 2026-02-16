@@ -1,3 +1,4 @@
+// Este comentario es un intento de cambio para redespliegue
 // ===== CONFIGURACIÓN DE PROMOCIÓN DEL MOMENTO =====
 // Cambia esta imagen para actualizar la promoción destacada
 const PROMOCION_CONFIG = {
